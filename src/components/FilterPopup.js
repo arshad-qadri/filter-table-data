@@ -14,7 +14,7 @@ import {
 
 const FilterPopup = () => {
   const [name, setName] = useState();
-  const [fromDate, setFromDate] = useState("");
+  const [fromDate, setFromDate] = useState("from");
   const [toDate, setToDate] = useState("");
   const [sort, setSort] = useState("A-Z");
   const dispatch = useDispatch();
@@ -58,9 +58,9 @@ const FilterPopup = () => {
       }
     } else {
       if (sort === "A-Z") {
-        dispatch(filterData(A_Z_Data(data)));
-      }else{
-        dispatch(filterData(Z_A_Data(data)))
+        dispatch(filterData(A_Z_Data(AllData)));
+      } else {
+        dispatch(filterData(Z_A_Data(AllData)));
       }
     }
   };
