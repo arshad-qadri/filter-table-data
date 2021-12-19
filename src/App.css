@@ -1,0 +1,30 @@
+.show-popup {
+  position: relative;
+}
+.popup {
+  position: absolute;
+  left: -310px;
+  width: 300px;
+}
+.date-select label {
+  width: 70px;
+}
+.p-multiselect,
+.p-dropdown {
+  width: 100% !important;
+}
+.search {
+  position: relative;
+}
+.suggestion {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 205px;
+  height: max-content;
+  /* display: none; */
+}
+.suggestion p:hover{
+  background: #efefef;
+  cursor: pointer;
+}
