@@ -5,7 +5,6 @@ const initSatate = {
   data: allData,
 };
 const reducer = (state = initSatate, action) => {
-  console.log("action-payload", action.payload);
   switch (action.type) {
     case FILTER_DATA:
       return {

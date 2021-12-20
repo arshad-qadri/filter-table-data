@@ -13,7 +13,7 @@ import {
 } from "../customFunction";
 
 const FilterPopup = () => {
-  const [name, setName] = useState();
+  const [name, setName] = useState([]);
   const [fromDate, setFromDate] = useState("from");
   const [toDate, setToDate] = useState("");
   const [sort, setSort] = useState("A-Z");
@@ -30,13 +30,10 @@ const FilterPopup = () => {
   const handleFilter = (e) => {
     e.preventDefault();
     const filteredDatabyDate = filterByDate(AllData, fromDate, toDate);
-    console.log("filteredDatabyDate", filteredDatabyDate);
-    if (name) {
-      console.log("name");
+    if (name.length > 0) {
       const filter_name = filterByName(name, AllData);
-      console.log("filter_name", filter_name);
       const filter_date = filterByDate(filter_name, fromDate, toDate);
-      if (filter_date.length) {
+      if (filter_date.length > 0) {
         if (sort === "A-Z") {
           dispatch(filterData(A_Z_Data(filter_date)));
         } else {
@@ -50,13 +47,12 @@ const FilterPopup = () => {
         }
       }
     } else if (filteredDatabyDate?.length) {
-      console.log("filteredDatabyDate");
       if (sort === "A-Z") {
         dispatch(filterData(A_Z_Data(filteredDatabyDate)));
       } else {
         dispatch(filterData(Z_A_Data(filteredDatabyDate)));
       }
-    } else {
+    } else if (sort) {
       if (sort === "A-Z") {
         dispatch(filterData(A_Z_Data(AllData)));
       } else {
@@ -107,8 +103,7 @@ const FilterPopup = () => {
           </div>
           <button
             className="btn btn-success w-100 mt-2"
-            onClick={(e) => handleFilter(e)}
-          >
+            onClick={(e) => handleFilter(e)}>
             Search
           </button>
         </form>

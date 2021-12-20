@@ -1,9 +1,8 @@
-import { FILTER_DATA } from "../types"
+import { FILTER_DATA } from "../types";
 
-export const filterData = (data)=>{
-    console.log("action", data);
-    return{
-        type:FILTER_DATA,
-        payload:data
-    }
-}
+export const filterData = (data) => {
+  return {
+    type: FILTER_DATA,
+    payload: data,
+  };
+};

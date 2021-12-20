@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const Table = () => {
-  const data = useSelector((state) => state.data.data);
+  const data = useSelector((state) => state.data);
   return (
     <>
       <div className="container mx-auto my-3">
@@ -17,8 +17,8 @@ const Table = () => {
             </tr>
           </thead>
           <tbody>
-            {data.length > 0 ? (
-              data.map((item, ind) => {
+            {data.data.length > 0 ? (
+              data.data.map((item, ind) => {
                 const date = new Date(item.date).getDate().toString();
                 const month = (new Date(item.date).getMonth() + 1).toString();
                 const year = new Date(item.date).getFullYear().toString();

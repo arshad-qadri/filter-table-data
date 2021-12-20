@@ -35,7 +35,6 @@ const Header = () => {
         (item) => item.name.toLowerCase() === search.trim().toLowerCase()
       );
       dispatch(filterData(filter_Data));
-      console.log("filterData", filter_Data);
     }
   };
   return (
