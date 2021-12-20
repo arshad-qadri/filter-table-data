@@ -4,7 +4,6 @@ import { Dropdown } from "primereact/dropdown";
 import AllData from "../Redux/data";
 import { useDispatch } from "react-redux";
 import { filterData } from "../Redux/actions";
-import { useSelector } from "react-redux";
 import {
   A_Z_Data,
   filterByDate,
@@ -18,7 +17,6 @@ const FilterPopup = () => {
   const [toDate, setToDate] = useState("");
   const [sort, setSort] = useState("A-Z");
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.data?.data);
   const nameOpt = AllData.map((item) => {
     return { ...item, label: item.name, value: item.name };
   });
@@ -103,7 +101,8 @@ const FilterPopup = () => {
           </div>
           <button
             className="btn btn-success w-100 mt-2"
-            onClick={(e) => handleFilter(e)}>
+            onClick={(e) => handleFilter(e)}
+          >
             Search
           </button>
         </form>
